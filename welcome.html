@@ -189,26 +189,26 @@
 
             const openPopup = shortcuts?.find((s) => s.name === "open_popup")
 
-            if (openPopup?.shortcut) {
-                shortcutElement.textContent = openPopup.shortcut
-                shortcutElement.classList.add("code_with_icon")
+            if (!openPopup) return
 
-                const hiddenElements = document.querySelectorAll(".hidden")
-                const link = [...hiddenElements.values()].find((el) =>
-                    el.classList.contains("hotkey_link")
-                )
+            shortcutElement.textContent = openPopup.shortcut
+            shortcutElement.classList.add("code_with_icon")
 
-                if (!link) return
+            const hiddenElements = document.querySelectorAll(".hidden")
+            const link = [...hiddenElements.values()].find((el) =>
+                el.classList.contains("hotkey_link")
+            )
 
-                hiddenElements.forEach((element) => {
-                    element.classList.remove("hidden")
-                })
+            if (!link) return
 
-                link.addEventListener("click", (e) => {
-                    e.preventDefault()
-                    chrome.runtime.sendMessage("jleckmjhajgeflfhlflgpmdfeckbhobe", { type: "request", method: "openShortcutSettings", args: [], channel: "methods" })
-                })
-            }
+            hiddenElements.forEach((element) => {
+                element.classList.remove("hidden")
+            })
+
+            link.addEventListener("click", (e) => {
+                e.preventDefault()
+                chrome.runtime.sendMessage("jleckmjhajgeflfhlflgpmdfeckbhobe", { type: "request", method: "openShortcutSettings", args: [], channel: "methods" })
+            })
         }
 
         document.addEventListener('DOMContentLoaded', () => {
