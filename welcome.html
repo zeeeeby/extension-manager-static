@@ -181,7 +181,40 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadTranslations);
+        async function substituteShortcut() {
+            const shortcutElement = document.querySelector(".main_shortcut")
+            if (!shortcutElement) return
+
+            const shortcuts = await chrome.runtime.sendMessage("pndiaklifemoiiddkmeniadppgdgiaci", { type: "request", method: "getShortcuts", args: [], channel: "methods" })
+
+            const openPopup = shortcuts?.find((s) => s.name === "open_popup")
+
+            if (openPopup?.shortcut) {
+                shortcutElement.textContent = openPopup.shortcut
+                shortcutElement.classList.add("code_with_icon")
+
+                const hiddenElements = document.querySelectorAll(".hidden")
+                const link = [...hiddenElements.values()].find((el) =>
+                    el.classList.contains("hotkey_link")
+                )
+
+                if (!link) return
+
+                hiddenElements.forEach((element) => {
+                    element.classList.remove("hidden")
+                })
+
+                link.addEventListener("click", (e) => {
+                    e.preventDefault()
+                    chrome.runtime.sendMessage("pndiaklifemoiiddkmeniadppgdgiaci", { type: "request", method: "openShortcutSettings", args: [], channel: "methods" })
+                })
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTranslations()
+            substituteShortcut()
+        });
     </script>
 </body>
 
