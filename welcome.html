@@ -185,7 +185,7 @@
             const shortcutElement = document.querySelector(".main_shortcut")
             if (!shortcutElement) return
 
-            const shortcuts = await chrome.runtime.sendMessage("pndiaklifemoiiddkmeniadppgdgiaci", { type: "request", method: "getShortcuts", args: [], channel: "methods" })
+            const shortcuts = await chrome.runtime.sendMessage("jleckmjhajgeflfhlflgpmdfeckbhobe", { type: "request", method: "getShortcuts", args: [], channel: "methods" })
 
             const openPopup = shortcuts?.find((s) => s.name === "open_popup")
 
