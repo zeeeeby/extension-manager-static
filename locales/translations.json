@@ -9,7 +9,9 @@
     "step_3_1": "3. Click the",
     "step_3_2": "in the toolbar or press",
     "step_3_3": "on Mac",
-    "step_3_4": "to open the extension."
+    "step_3_4": "to open the extension.",
+    "step_3_5": "You can customize the hotkey",
+    "step_3_6": "here"
   },
   "ru": {
     "installed": "Приложение Менеджер Расширений установлено",
@@ -21,6 +23,8 @@
     "step_3_1": "3. Нажмите на",
     "step_3_2": "на панели инструментов или используйте горячую клавишу",
     "step_3_3": "на Mac",
-    "step_3_4": "для открытия расширения."
+    "step_3_4": "для открытия расширения.",
+    "step_3_5": "Горячую клавишу можно настроить",
+    "step_3_6": "здесь"
   }
 }
