@@ -1,7 +1,7 @@
 {
   "en": {
     "installed": "Extension Manager is installed",
-    "step_3_1": "1. Click the",
+    "step_3_1": "Click the",
     "step_3_2": "in the top right corner of your browser or press",
     "step_3_3": "on Mac",
     "step_3_4": "to open the extension.",
@@ -10,7 +10,7 @@
   },
   "ru": {
     "installed": "Приложение Менеджер Расширений установлено",
-    "step_3_1": "1. Нажмите на",
+    "step_3_1": "Нажмите на",
     "step_3_2": "в правом верхнем углу вашего браузера или используйте горячую клавишу",
     "step_3_3": "на Mac",
     "step_3_4": "для открытия расширения.",
