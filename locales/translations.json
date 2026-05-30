@@ -1,20 +1,14 @@
 {
   "en": {
-    "installed": "Extension Manager is installed",
-    "step_3_1": "Click the",
-    "step_3_2": "in the top right corner of your browser or press",
-    "step_3_3": "on Mac",
-    "step_3_4": "to open the extension.",
-    "step_3_5": "You can customize the shortcut",
-    "step_3_6": "here"
+    "installed": "🎉 Congratulations on installing Extension Manager!",
+    "welcome_step_1": "1. Click the puzzle piece in the top right of your browser.",
+    "welcome_step_2": "2. Click the little pin next to the extension:",
+    "welcome_step_3": "3. Open the extension by clicking the icon"
   },
   "ru": {
-    "installed": "Приложение Менеджер Расширений установлено",
-    "step_3_1": "Нажмите на",
-    "step_3_2": "в правом верхнем углу вашего браузера или используйте горячую клавишу",
-    "step_3_3": "на Mac",
-    "step_3_4": "для открытия расширения.",
-    "step_3_5": "Вы можете настроить сочетание клавиш",
-    "step_3_6": "здесь"
+    "installed": "🎉 Поздравляем с установкой менеджер расширений",
+    "welcome_step_1": "1. Нажмите на значок пазла в правом верхнем углу браузера.",
+    "welcome_step_2": "2. Нажмите на значок булавки рядом с расширением:",
+    "welcome_step_3": "3. Откройте расширение кликнув по иконке"
   }
 }
