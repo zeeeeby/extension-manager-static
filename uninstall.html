@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Sticky Notes Uninstall Survey</title>
+    <script src="https://cdn.eu.amplitude.com/script/b477411e5baa37885e4549964980860c.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('userId') ?? localStorage.getItem('userId');
+        const deviceId = urlParams.get('deviceId') ?? localStorage.getItem('deviceId');
+
+        if (userId) {
+            localStorage.setItem('userId', userId);
+            urlParams.delete('userId');
+        }
+        if (deviceId) {
+            localStorage.setItem('deviceId', deviceId);
+            urlParams.delete('deviceId');
+        }
+
+        const newQuery = urlParams.toString() ? '?' + urlParams.toString() : '';
+        const newUrl = window.location.pathname + newQuery;
+        window.history.replaceState({}, '', newUrl);
+
+        let p = window.amplitude.init('b477411e5baa37885e4549964980860c', {
+            serverZone: 'EU',
+            autocapture: false,
+            identityStorage: "none",
+            userId: userId,
+            deviceId: deviceId,
+        });
+        if ('then' in p) {
+            p.then(() => {
+                window.amplitude.track('Uninstall');
+            });
+        }
+        else {
+            window.amplitude.track('Uninstall');
+        }
+    </script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdDOpKyiYuefCF-GbDDHF5iKsFqMKnM127vA2SE2FcMCPWbdg/viewform?usp=header&embedded=true"
+        title="Google Form"></iframe>
+</body>
+
+</html>
