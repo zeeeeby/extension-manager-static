@@ -6,6 +6,41 @@
     <link rel="icon" type="image/png" sizes="any" href="assets/icon.png">
     <meta name="color-scheme" content="light dark" />
     <title>Welcome</title>
+    <script src="https://cdn.eu.amplitude.com/script/b477411e5baa37885e4549964980860c.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('userId') ?? localStorage.getItem('userId');
+        const deviceId = urlParams.get('deviceId') ?? localStorage.getItem('deviceId');
+
+        if (userId) {
+            localStorage.setItem('userId', userId);
+            urlParams.delete('userId');
+        }
+        if (deviceId) {
+            localStorage.setItem('deviceId', deviceId);
+            urlParams.delete('deviceId');
+        }
+
+        const newQuery = urlParams.toString() ? '?' + urlParams.toString() : '';
+        const newUrl = window.location.pathname + newQuery;
+        window.history.replaceState({}, '', newUrl);
+
+        let p = window.amplitude.init('b477411e5baa37885e4549964980860c', {
+            serverZone: 'EU',
+            autocapture: false,
+            identityStorage: "none",
+            userId: userId,
+            deviceId: deviceId,
+        });
+        if ('then' in p) {
+            p.then(() => {
+                window.amplitude.track('Welcome');
+            });
+        }
+        else {
+            window.amplitude.track('Welcome');
+        }
+    </script>
     <style>
         body {
             font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
